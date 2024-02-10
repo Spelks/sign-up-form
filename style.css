@@ -27,6 +27,10 @@ body {
     height: 100vh;
 }
 
+.hide-form-section {
+    display: none;
+}
+
 .welcome-section {
     background-color: hsl(var(--background-color), .4);
 }
