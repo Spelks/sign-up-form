@@ -15,7 +15,29 @@ html {
     font-size: 18px;
 }
 
+body,
+.form-section,
+.welcome-section {
+    display: flex;
+}
+
 body {
     font-family: var(--primary-font);
     color: hsl(var(--font-color));
+    height: 100vh;
+}
+
+.welcome-section {
+    background-color: hsl(var(--background-color), .4);
+}
+
+.form-section {
+    background-color: hsl(var(--background-color), .8);
+}
+
+.welcome-section,
+.form-section {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
