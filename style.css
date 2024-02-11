@@ -2,7 +2,12 @@
     --primary-font: "Fira Sans", sans-serif;
     --font-color: 0, 0%, 20%;
 
-    --background-color: 191, 48%, 25%;
+    --primary-bg-clr: 191, 48%, 25%;
+    --secondary-bg-clr: 180, 100%, 97%;
+
+    --main-padding: 30px;
+    --btn-padding: 10px 20px;
+    --btn-margin: 20px;
 }
 
 * {
@@ -17,7 +22,9 @@ html {
 
 body,
 .form-section,
-.welcome-section {
+.welcome-section,
+#sign-up-form,
+.form-row {
     display: flex;
 }
 
@@ -32,11 +39,20 @@ body {
 }
 
 .welcome-section {
-    background-color: hsl(var(--background-color), .4);
+    background-color: hsl(var(--primary-bg-clr), .4);
+    flex: 1;
+    padding: var(--main-padding);
 }
 
 .form-section {
-    background-color: hsl(var(--background-color), .8);
+    background-color: hsl(var(--primary-bg-clr), .8);
+    flex: 3;
+}
+
+.form-container {
+    background-color: hsl(var(--secondary-bg-clr));
+    padding: var(--main-padding);
+    width: 100%;
 }
 
 .welcome-section,
@@ -44,4 +60,29 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+button {
+    padding: var(--btn-padding);
+    margin: var(--btn-margin);
+}
+
+#sign-up-form {
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 80%;
+}
+
+.form-row {
+    flex-basis: calc(50% - 20px);
+    flex-direction: column;
+}
+
+.form-row input {
+    flex: 2;
+    font-size: 1rem;
+}
+
+.form-row label {
+    flex: 1;
 }
