@@ -1,9 +1,9 @@
 :root {
     --primary-font: "Fira Sans", sans-serif;
-    --font-color: 0, 0%, 20%;
 
-    --primary-bg-clr: 191, 48%, 25%;
-    --secondary-bg-clr: 180, 100%, 97%;
+    --primary-clr: 249, 70%, 62%;
+    --dark-clr: 0, 0%, 20%;
+    --white-clr: 180, 100%, 97%;
 
     --main-padding: 30px;
     --btn-padding: 10px 20px;
@@ -14,6 +14,10 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+a:link {
+    color: inherit;
 }
 
 html {
@@ -30,30 +34,53 @@ body,
 
 body {
     font-family: var(--primary-font);
-    color: hsl(var(--font-color));
     height: 100vh;
-}
-
-.hide-form-section {
-    display: none;
+    background-image: url(img/joel-filipe-VuwAfoHpxgs-unsplash.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .welcome-section {
-    background-color: hsl(var(--primary-bg-clr), .4);
+    background-color: hsl(var(--primary-clr), .4);
     flex: 1;
-    padding: var(--main-padding);
-    align-items: center;
+    width: 100%; 
+    transition: width 0.5s ease;
 }
 
 .form-section {
-    background-color: hsl(var(--primary-bg-clr), .8);
-    flex: 3;
+    background-color: hsl(var(--primary-clr), .4);
+    color: hsl(var(--dark-clr));
+    width: 0; 
+    transition: width 0.5s ease; 
+    overflow: hidden; 
+    opacity: 0;
+}
+
+.welcome-container {
+    background-color: hsl(var(--dark-clr), .7);
+    padding: var(--main-padding);
+    color: hsl(var(--white-clr));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 330px;
+    transition: 0.7s;
+}
+
+.welcome-message {
+    margin-top: 40px;
+    transition:ease-in 2s;
+    opacity: 0;
+    text-align: center;
 }
 
 .form-container {
-    background-color: hsl(var(--secondary-bg-clr));
+    background-color: hsl(var(--white-clr), .9);
     padding: var(--main-padding);
-    width: 100%;
+    max-height: 300px;
+    display: flex;
+    justify-content: center;
 }
 
 .welcome-section,
@@ -66,6 +93,12 @@ button {
     width: fit-content;
     padding: var(--btn-padding);
     margin: var(--btn-margin);
+    background-color: hsl(var(--primary-clr));
+    border: 0;
+    border-radius: 10px;
+    color: hsl(var(--white-clr));
+    font-weight: 800;
+    font-size: 1.3rem;
 }
 
 #sign-up-form {
@@ -94,4 +127,12 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+.image-credits {
+    position: absolute;
+    bottom: 0;
+    padding: var(--btn-padding);
+    color: hsl(var(--dark-clr), .7);
+    font-size: 0.8rem;
 }
