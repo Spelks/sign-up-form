@@ -99,6 +99,13 @@ button {
     color: hsl(var(--white-clr));
     font-weight: 800;
     font-size: 1.3rem;
+    transition: 1s;
+}
+
+button:hover {
+    color: hsl(var(--primary-clr));
+    background-color: hsl(var(--white-clr));
+    transition: 1s;
 }
 
 #sign-up-form {
