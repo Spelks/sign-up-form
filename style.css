@@ -28,8 +28,23 @@ body,
 .form-section,
 .welcome-section,
 #sign-up-form,
-.form-row {
+.form-row,
+.form-container,
+.welcome-container {
     display: flex;
+}
+
+.welcome-container,
+.welcome-section,
+.form-section,
+.form-row {
+    flex-direction: column;
+}
+
+.welcome-section,
+.form-section,
+.form-container {
+    justify-content: center;
 }
 
 body {
@@ -61,8 +76,6 @@ body {
     background-color: hsl(var(--dark-clr), .7);
     padding: var(--main-padding);
     color: hsl(var(--white-clr));
-    display: flex;
-    flex-direction: column;
     align-items: center;
     height: 330px;
     transition: 0.7s;
@@ -79,20 +92,11 @@ body {
     background-color: hsl(var(--white-clr), .9);
     padding: var(--main-padding);
     max-height: 300px;
-    display: flex;
-    justify-content: center;
-}
-
-.welcome-section,
-.form-section {
-    flex-direction: column;
-    justify-content: center;
 }
 
 button {
     width: fit-content;
     padding: var(--btn-padding);
-    margin: var(--btn-margin);
     background-color: hsl(var(--primary-clr));
     border: 0;
     border-radius: 10px;
@@ -116,12 +120,22 @@ button:hover {
 
 .form-row {
     flex-basis: calc(50% - 20px);
-    flex-direction: column;
+    opacity: 0;
+    transition: ease-in 1.5s;
 }
 
 .form-row input {
     font-size: 1rem;
     padding: 5px 10px;
+}
+
+.sign-up-footer {
+    margin: var(--btn-margin);
+}
+
+.sign-up-footer span {
+    color: hsl(var(--primary-clr));
+    font-weight: 700;
 }
 
 /* Hide arrows/spiners from Chrome, Safari, Edge, Opera */
@@ -142,4 +156,5 @@ input[type=number] {
     padding: var(--btn-padding);
     color: hsl(var(--dark-clr), .7);
     font-size: 0.8rem;
+    transition: ease-in 2s;
 }
