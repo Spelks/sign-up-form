@@ -110,6 +110,7 @@ button:hover {
     color: hsl(var(--primary-clr));
     background-color: hsl(var(--white-clr));
     transition: 1s;
+    cursor: pointer;
 }
 
 #sign-up-form {
@@ -138,6 +139,10 @@ button:hover {
     font-weight: 700;
 }
 
+.sign-up-footer span:hover {
+    cursor: pointer;
+}
+
 /* Hide arrows/spiners from Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -157,4 +162,16 @@ input[type=number] {
     color: hsl(var(--dark-clr), .7);
     font-size: 0.8rem;
     transition: ease-in 2s;
+}
+
+input {
+    border: 2px solid transparent;
+    border-radius: 10px;
+}
+
+input:focus {
+    transition: 1s;
+    border: 2px solid hsl(var(--primary-clr));
+    background-color: hsl(var(--primary-clr), .1);
+    outline: none;
 }
