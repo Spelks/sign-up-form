@@ -1,3 +1,8 @@
+@font-face {
+    font-family: fantasy-font;
+    src: url(font/Ferrum-wy99.otf);
+}
+
 :root {
     --primary-font: "Fira Sans", sans-serif;
 
@@ -60,6 +65,11 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+}
+
+h1 {
+    font-family: fantasy-font;
+    font-size: 2rem;
 }
 
 .welcome-section {
