@@ -5,6 +5,7 @@ const welcomeContainer = document.querySelector(".welcome-container");
 const welcomeMessage = document.querySelector("[data-welcome-message]");
 const formRow = document.querySelectorAll(".form-row");
 const imageCredits = document.querySelector(".image-credits");
+const gesFlag = document.querySelector(".ges-flag");
 
 signUpBtn.addEventListener("click", signUpActive);
 
@@ -14,10 +15,9 @@ function signUpActive() {
   formRow.forEach((item) => item.style.opacity = "1");
   welcomeContainer.style.height = "100%";
   welcomeSection.style.width = "30%";
-  welcomeMessage.style.opacity = "1";
+  welcomeMessage.style.cssText = "opacity: 1; margin-top: 20px;";
   welcomeMessage.textContent = "Join the Gestahlian Empire today, and you too can use magic derived from espers!";
-  // imageCredits.style.color = "white";
-  // imageCredits.style.borderTop = "1px solid white";
-  imageCredits.style.cssText = "color: white; border-top: 1px solid white;";  
+  imageCredits.style.cssText = "color: white; border-top: 1px solid white;";
+  gesFlag.style.width = "160px";
 }
   
