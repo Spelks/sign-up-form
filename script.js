@@ -7,7 +7,12 @@ const formRow = document.querySelectorAll(".form-row");
 const imageCredits = document.querySelector(".image-credits");
 const gesFlag = document.querySelector(".ges-flag");
 
+const signUpForm = document.getElementById("sign-up-form");
+const accountBtn = document.getElementById("create-account");
+const passwordMtach = document.querySelector(".password-match");
+
 signUpBtn.addEventListener("click", signUpActive);
+accountBtn.addEventListener("click", matchPassword);
 
 function signUpActive() {
   signUpBtn.style.display = "none";
@@ -20,4 +25,19 @@ function signUpActive() {
   imageCredits.style.cssText = "color: white; border-top: 1px solid white;";
   gesFlag.style.width = "160px";
 }
+
+function matchPassword() {
+  const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("cpassword").value;
+  if(password === confirmPassword) {
+    passwordMtach.textContent = "";
+    return
+  }
+  passwordMtach.textContent = "Password does not match!";
+  event.preventDefault();
+}
+
+confirmPassword.classList.add("invalid");
+
+
   
