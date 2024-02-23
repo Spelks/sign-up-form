@@ -206,3 +206,8 @@ input:focus {
     background-color: hsl(var(--primary-clr), .1);
     outline: none;
 }
+
+.password-match {
+    color: red;
+    height: 20px;
+}
