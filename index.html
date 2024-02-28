@@ -29,29 +29,31 @@
         <form id="sign-up-form" action="https://httpbin.org/post" method="post" target="_blank">
 
             <div class="form-row">
-                <label for="fname">FIRST NAME</label>
                 <input type="text" id="fname" name="user_fname">
+                <label for="fname">FIRST NAME</label>
             </div>
             <div class="form-row">
-                <label for="lname">LAST NAME</label>
                 <input type="text" id="lname" name="user_lname">
+                <label for="lname">LAST NAME</label>
             </div>
             <div class="form-row">
-                <label for="email">EMAIL</label>
                 <input type="email" id="email" name="user_email">    
-            </div>
-            <div class="form-row">   
-                <label for="phone">PHONE NUMBER</label>
-                <input type="number" id="phone" name="user_phone">
+                <label for="email">EMAIL</label>
             </div>
             <div class="form-row">
-                <label for="password">PASSWORD</label>
-                <input type="password" id="password" name="user_password">    
+                <input type="number" id="phone" name="user_phone">
+                <label for="phone">PHONE NUMBER</label>
             </div>
-            <div class="form-row">  
-                <label for="cpassword">CONFIRM PASSWORD</label>
+            <div class="form-row">
+                <input type="password" id="password" name="user_password">  
+                <label for="password">PASSWORD</label>  
+            </div>
+            <div class="form-row">
                 <input type="password" id="cpassword" name="user_password_confirm">
-                <p class="password-match"></p>
+                <label for="cpassword">CONFIRM PASSWORD</label>
+                <div>
+                    <p class="password-match"></p>
+                </div>
             </div>
 
         </div>
