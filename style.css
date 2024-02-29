@@ -249,3 +249,7 @@ input.is-valid + label {
   color: hsl(var(--primary-clr));
   font-weight: 400;
 }
+
+.error-border {
+    border: 2px solid hsl(var(--red-clr));
+}
