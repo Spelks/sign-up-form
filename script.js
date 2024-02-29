@@ -15,7 +15,7 @@ const confirmPassword = document.getElementById("cpassword");
 
 // Event listeners for buttons.
 signUpBtn.addEventListener("click", signUpActive);
-accountBtn.addEventListener("click", matchPassword);
+accountBtn.addEventListener("click", verifyPassword);
 //Event listeners for inputs
 password.addEventListener("input", clearPasswordError);
 confirmPassword.addEventListener("input", clearPasswordError);
@@ -34,7 +34,7 @@ function signUpActive() {
 }
 
 // Validates that the password and confirm password fields match before form submission.
-function matchPassword(event) {
+function verifyPassword(event) {
   if (password.value === confirmPassword.value) {
     passwordMatch.textContent = "";
     password.classList.remove("error-border");
@@ -45,6 +45,7 @@ function matchPassword(event) {
     confirmPassword.classList.add("error-border");
     event.preventDefault(); // Prevent form submission if passwords do not match.
   }
+  checkPasswordLength(event);
 }
 
 //Removes error message and border when user clears password fields.
@@ -53,6 +54,16 @@ function clearPasswordError() {
     passwordMatch.textContent = "";
     password.classList.remove("error-border");
     confirmPassword.classList.remove("error-border");
+  }
+}
+
+//check password length
+function checkPasswordLength(event) {
+  if (password.value.length < 6 && confirmPassword.value.length < 6) {
+    passwordMatch.textContent = "Password must be over 5 characters!";
+    password.classList.add("error-border");
+    confirmPassword.classList.add("error-border");
+    event.preventDefault();   
   }
 }
 
