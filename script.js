@@ -10,10 +10,15 @@ const signUpForm = document.getElementById("sign-up-form");
 const accountBtn = document.getElementById("create-account");
 const passwordMatch = document.querySelector(".password-match");
 const inputs = document.querySelectorAll("input");
+const password = document.getElementById("password");
+const confirmPassword = document.getElementById("cpassword");
 
 // Event listeners for buttons.
 signUpBtn.addEventListener("click", signUpActive);
 accountBtn.addEventListener("click", matchPassword);
+//Event listeners for inputs
+password.addEventListener("input", clearPasswordError);
+confirmPassword.addEventListener("input", clearPasswordError);
 
 // Activates the sign-up form and adjusts the layout when the 'Start Now' button is clicked.
 function signUpActive() {
@@ -30,13 +35,24 @@ function signUpActive() {
 
 // Validates that the password and confirm password fields match before form submission.
 function matchPassword(event) {
-  const password = document.getElementById("password").value;
-  const confirmPassword = document.getElementById("cpassword").value;
-  if (password === confirmPassword) {
+  if (password.value === confirmPassword.value) {
     passwordMatch.textContent = "";
+    password.classList.remove("error-border");
+    confirmPassword.classList.remove("error-border");
   } else {
     passwordMatch.textContent = "Password does not match!";
+    password.classList.add("error-border");
+    confirmPassword.classList.add("error-border");
     event.preventDefault(); // Prevent form submission if passwords do not match.
+  }
+}
+
+//Removes error message and border when user clears password fields.
+function clearPasswordError() {
+  if (password.value === "" || confirmPassword.value === "") {
+    passwordMatch.textContent = "";
+    password.classList.remove("error-border");
+    confirmPassword.classList.remove("error-border");
   }
 }
 
