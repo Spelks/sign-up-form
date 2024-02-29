@@ -97,7 +97,7 @@ h1 {
     color: hsl(var(--white-clr));
     align-items: center;
     height: 330px;
-    transition: var(--transition-medium);
+    transition: var(--transition-fast);
     padding-top: 20px;
 }
 
@@ -193,7 +193,7 @@ input[type=number] {
 }
 
 
-.password-match,
+.form-submit-error-msg,
 .image-credits,
 label {
     position: absolute;
@@ -224,7 +224,7 @@ input:focus {
     outline: none;
 }
 
-.password-match {
+.form-submit-error-msg {
     color: hsl(var(--red-clr));
 }
 
