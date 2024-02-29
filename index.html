@@ -29,15 +29,15 @@
         <form id="sign-up-form" action="https://httpbin.org/post" method="post" target="_blank">
 
             <div class="form-row">
-                <input type="text" id="fname" name="user_fname">
+                <input type="text" id="fname" name="user_fname" required>
                 <label for="fname">FIRST NAME</label>
             </div>
             <div class="form-row">
-                <input type="text" id="lname" name="user_lname">
+                <input type="text" id="lname" name="user_lname" required>
                 <label for="lname">LAST NAME</label>
             </div>
             <div class="form-row">
-                <input type="email" id="email" name="user_email">    
+                <input type="email" id="email" name="user_email" required>    
                 <label for="email">EMAIL</label>
             </div>
             <div class="form-row">
@@ -45,14 +45,17 @@
                 <label for="phone">PHONE NUMBER</label>
             </div>
             <div class="form-row">
-                <input type="password" id="password" name="user_password">  
-                <label for="password">PASSWORD</label>  
+                <input type="password" id="password" name="user_password" required>  
+                <label for="password">PASSWORD</label>
+                <div>
+                    <p data-form-error-message class="form-submit-error-msg"></p>
+                </div>
             </div>
             <div class="form-row">
-                <input type="password" id="cpassword" name="user_password_confirm">
+                <input type="password" id="cpassword" name="user_password_confirm" required>
                 <label for="cpassword">CONFIRM PASSWORD</label>
                 <div>
-                    <p class="password-match"></p>
+                    <p data-form-password-error class="form-submit-error-msg"></p>
                 </div>
             </div>
 
