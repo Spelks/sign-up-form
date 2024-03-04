@@ -8,17 +8,27 @@ const imageCredits = document.querySelector(".image-credits");
 const gesFlag = document.querySelector(".ges-flag");
 const signUpForm = document.getElementById("sign-up-form");
 const accountBtn = document.getElementById("create-account");
-const passwordMatch = document.querySelector("[data-form-password-error]");
+const passwordError = document.querySelector("[data-form-password-error]");
+const errorMessage = document.querySelector("[data-form-error-message]");
 const inputs = document.querySelectorAll("input");
 const password = document.getElementById("password");
 const confirmPassword = document.getElementById("cpassword");
 
 // Event listeners for buttons.
 signUpBtn.addEventListener("click", signUpActive);
-accountBtn.addEventListener("click", verifyPassword);
+accountBtn.addEventListener("click", verifyForm);
 //Event listeners for inputs
-password.addEventListener("input", clearPasswordError);
-confirmPassword.addEventListener("input", clearPasswordError);
+password.addEventListener("input", clearFieldError);
+confirmPassword.addEventListener("input", clearFieldError);
+
+inputs.forEach(input => {
+  input.addEventListener("input", () => {
+    clearFieldError(input);
+    if (input === password || input === confirmPassword) {
+      clearPasswordError();
+    }
+  });
+});
 
 // Activates the sign-up form and adjusts the layout when the 'Start Now' button is clicked.
 function signUpActive() {
@@ -34,54 +44,49 @@ function signUpActive() {
 }
 
 // Validates that the password and confirm password fields match before form submission.
-function verifyPassword(event) {
-  if (password.value === confirmPassword.value) {
-    passwordMatch.textContent = "";
-    passwordErrorRemoveBorder()
+function verifyForm(event) {
+  event.preventDefault();
+  let isValid = true;
+
+  inputs.forEach(input => {
+    if(input.hasAttribute("required") && input.value.trim() === "") {
+      input.classList.add("error-border");
+      if(errorMessage.textContent === "") errorMessage.textContent = "Please fill out all the required fields!"
+      isValid = false;
+    }
+  })
+
+  if(password.value !== confirmPassword.value) {
+    passwordError.textContent = "Password does not match!";
+    password.classList.add("error-border");
+    confirmPassword.classList.add("error-border");
+    isValid = false;
+  } else if (password.value.length > 0 && password.value.length < 6) {
+    passwordError.textContent = "Password must be over 5 characters!";
+    password.classList.add("error-border");
+    confirmPassword.classList.add("error-border");
+    isValid = false;
   } else {
-    passwordMatch.textContent = "Password does not match!";
-    passwordErrorAddBorder()
-    event.preventDefault(); // Prevent form submission if passwords do not match.
+    passwordError.textContent = "";
   }
-  checkPasswordLength(event);
+
+  if(isValid) {
+    signUpForm.submit();
+  }
 }
 
-//Removes error message and border when user clears password fields.
+function clearFieldError(input) {
+  if (input.value.trim() !== "") {
+    input.classList.remove("error-border");
+    errorMessage.textContent = "";
+  }
+}
+
 function clearPasswordError() {
-  if (password.value === "" || confirmPassword.value === "") {
-    passwordMatch.textContent = "";
-    passwordErrorRemoveBorder()
-  }
-}
-
-//check password length
-function checkPasswordLength(event) {
-  if (password.value.length < 6 && confirmPassword.value.length < 6) {
-    passwordMatch.textContent = "Password must be over 5 characters!";
-    passwordErrorAddBorder()
-    event.preventDefault();   
-  }
-}
-
-function passwordErrorAddBorder() {
-  password.classList.add("error-border");
-  confirmPassword.classList.add("error-border");
-}
-
-function passwordErrorRemoveBorder() {
+  passwordError.textContent = "";
   password.classList.remove("error-border");
   confirmPassword.classList.remove("error-border");
 }
-
-// Ensures checkInput function is active if appropriate (including on page load).
-document.addEventListener("DOMContentLoaded", function() {
-  document.querySelectorAll("input").forEach(input => {
-    checkInput(input); // Check input on page load
-    input.addEventListener("input", () => {
-      checkInput(input);
-    });
-  });
-});
 
 // Applies class to input fields to prevent label overlap.
 function checkInput(input) {
@@ -92,3 +97,12 @@ function checkInput(input) {
   }
 }
 
+// Ensures checkInput function is active if appropriate (including on page load).
+document.addEventListener("DOMContentLoaded", ()=> {
+  document.querySelectorAll("input").forEach(input => {
+    checkInput(input); // Check input on page load
+    input.addEventListener("input", () => {
+      checkInput(input);
+    });
+  });
+});
