@@ -13,6 +13,7 @@ const errorMessage = document.querySelector("[data-form-error-message]");
 const inputs = document.querySelectorAll("input");
 const password = document.getElementById("password");
 const confirmPassword = document.getElementById("cpassword");
+const validEmail = document.getElementById("email");
 
 // Elements for toggling the visibility of passwords
 const passwordReveal = document.querySelector("[data-password-reveal]");
@@ -76,6 +77,7 @@ function signUpActive() {
 function verifyForm(event) {
   event.preventDefault();
   let isValid = true;
+
   // Check if required inputs are filled
   inputs.forEach(input => {
     if(input.hasAttribute("required") && input.value.trim() === "") {
@@ -97,6 +99,12 @@ function verifyForm(event) {
     isValid = false;
   } else {
     passwordError.textContent = "";
+  }
+  //Check email format
+  if(!validEmail.value.includes("@") && errorMessage.textContent === "") {
+    errorMessage.textContent = "Please enter a valid email";
+    validEmail.classList.add("error-border");
+    isValid = false;
   }
   // Submit the form if valid
   if(isValid) {
