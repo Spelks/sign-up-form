@@ -253,6 +253,24 @@ input.is-valid + label {
     border: 2px solid hsl(var(--red-clr));
 }
 
+.password-eye {
+    position: absolute;
+    right: 0;
+    padding: var(--btn-padding);
+    /* color: hsl(var(--dark-clr), .2); */
+    color: #33333383;
+    cursor: pointer;
+}
+
+.closed-eye,
+.closed-eye-confirm {
+    display: none;
+}
+
+.hide-eye {
+    display: none;
+}
+
 @media only screen and (max-width: 767px) {
 
     body {
@@ -290,6 +308,10 @@ input.is-valid + label {
 
     #sign-up-form {
         justify-content: center;
+    }
+
+    .image-credits {
+        display: none;
     }
 
 }
