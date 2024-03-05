@@ -47,6 +47,10 @@
             <div class="form-row">
                 <input type="password" id="password" name="user_password" required>  
                 <label for="password">PASSWORD</label>
+                <div data-password-reveal class="password-eye">
+                    <img class="opened-eye" src="img/eye.svg" alt="Show Password">
+                    <img class="closed-eye" src="img/eye-slash.svg" alt="Show Password">
+                </div>
                 <div>
                     <p data-form-error-message class="form-submit-error-msg"></p>
                 </div>
@@ -54,6 +58,10 @@
             <div class="form-row">
                 <input type="password" id="cpassword" name="user_password_confirm" required>
                 <label for="cpassword">CONFIRM PASSWORD</label>
+                <div data-confirm-password-reveal class="password-eye">
+                    <img class="opened-eye-confirm" src="img/eye.svg" alt="Show Password">
+                    <img class="closed-eye-confirm" src="img/eye-slash.svg" alt="Show Password">
+                </div>
                 <div>
                     <p data-form-password-error class="form-submit-error-msg"></p>
                 </div>
