@@ -244,7 +244,7 @@ label:hover {
 
 input:focus + label,
 input.is-valid + label {
-  transform: translateY(-130%) scale(0.75);
+  transform: translateY(-130%) scale(0.75); /* Moves and scales label on input focus or valid input */
   color: hsl(var(--primary-clr));
   font-weight: 400;
 }
@@ -260,6 +260,7 @@ input.is-valid + label {
     padding: var(--btn-padding);
     color: #33333383;
     cursor: pointer;
+    user-select: none;
 }
 
 /* class switching to hide/show eye/crossed out eye - initially hides closed eye */
@@ -276,7 +277,6 @@ input.is-valid + label {
     }
 
     .welcome-section {
-        /* display: none; */
         width: 100%;
     }
 
@@ -288,6 +288,14 @@ input.is-valid + label {
     
     .form-container {
         max-height: 100%;
+        padding-bottom: 120px;
+    }
+
+    /* .mobile-message {
+        margin-top: 130px;
+    } */
+    p[data-form-error-message] {
+        margin-top: 130px;
     }
 
     .welcome-container {
