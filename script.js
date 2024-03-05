@@ -14,6 +14,7 @@ const inputs = document.querySelectorAll("input");
 const password = document.getElementById("password");
 const confirmPassword = document.getElementById("cpassword");
 
+// Elements for toggling the visibility of passwords
 const passwordReveal = document.querySelector("[data-password-reveal]");
 const confirmPasswordReveal = document.querySelector("[data-confirm-password-reveal]");
 const openedEye = document.querySelector(".opened-eye");
@@ -21,6 +22,7 @@ const closedEye = document.querySelector(".closed-eye");
 const openedEyeConfirm = document.querySelector(".opened-eye-confirm");
 const closedEyeConfirm = document.querySelector(".closed-eye-confirm");
 
+// Toggle visibility of password on click
 passwordReveal.addEventListener("click", ()=> {
   revealPassword(password);
   openedEye.classList.toggle("closed-eye");
@@ -32,6 +34,7 @@ confirmPasswordReveal.addEventListener("click", ()=> {
   closedEyeConfirm.classList.toggle("closed-eye-confirm");
 });
 
+// Function to toggle password visibility
 function revealPassword(pass) {
   if(pass.type === "password") {
     pass.type = "text";
@@ -73,7 +76,7 @@ function signUpActive() {
 function verifyForm(event) {
   event.preventDefault();
   let isValid = true;
-
+  // Check if required inputs are filled
   inputs.forEach(input => {
     if(input.hasAttribute("required") && input.value.trim() === "") {
       input.classList.add("error-border");
@@ -81,7 +84,7 @@ function verifyForm(event) {
       isValid = false;
     }
   })
-
+  // Check password match and length constraints
   if(password.value !== confirmPassword.value) {
     passwordError.textContent = "Password does not match!";
     password.classList.add("error-border");
@@ -95,19 +98,19 @@ function verifyForm(event) {
   } else {
     passwordError.textContent = "";
   }
-
+  // Submit the form if valid
   if(isValid) {
     signUpForm.submit();
   }
 }
-
+// General field errors
 function clearFieldError(input) {
   if (input.value.trim() !== "") {
     input.classList.remove("error-border");
     errorMessage.textContent = "";
   }
 }
-
+// Function to clear password-specific errors
 function clearPasswordError() {
   passwordError.textContent = "";
   password.classList.remove("error-border");
