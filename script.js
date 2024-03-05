@@ -14,6 +14,32 @@ const inputs = document.querySelectorAll("input");
 const password = document.getElementById("password");
 const confirmPassword = document.getElementById("cpassword");
 
+const passwordReveal = document.querySelector("[data-password-reveal]");
+const confirmPasswordReveal = document.querySelector("[data-confirm-password-reveal]");
+const openedEye = document.querySelector(".opened-eye");
+const closedEye = document.querySelector(".closed-eye");
+const openedEyeConfirm = document.querySelector(".opened-eye-confirm");
+const closedEyeConfirm = document.querySelector(".closed-eye-confirm");
+
+passwordReveal.addEventListener("click", ()=> {
+  revealPassword(password);
+  openedEye.classList.toggle("closed-eye");
+  closedEye.classList.toggle("closed-eye");
+});
+confirmPasswordReveal.addEventListener("click", ()=> {
+  revealPassword(confirmPassword);
+  openedEyeConfirm.classList.toggle("closed-eye-confirm");
+  closedEyeConfirm.classList.toggle("closed-eye-confirm");
+});
+
+function revealPassword(pass) {
+  if(pass.type === "password") {
+    pass.type = "text";
+  } else {
+    pass.type = "password";
+  }
+}
+
 // Event listeners for buttons.
 signUpBtn.addEventListener("click", signUpActive);
 accountBtn.addEventListener("click", verifyForm);
