@@ -249,6 +249,7 @@ input.is-valid + label {
   font-weight: 400;
 }
 
+/* Border for any invalid fields */
 .error-border {
     border: 2px solid hsl(var(--red-clr));
 }
@@ -257,20 +258,17 @@ input.is-valid + label {
     position: absolute;
     right: 0;
     padding: var(--btn-padding);
-    /* color: hsl(var(--dark-clr), .2); */
     color: #33333383;
     cursor: pointer;
 }
 
+/* class switching to hide/show eye/crossed out eye - initially hides closed eye */
 .closed-eye,
 .closed-eye-confirm {
     display: none;
 }
 
-.hide-eye {
-    display: none;
-}
-
+/* Mobile view media query */
 @media only screen and (max-width: 767px) {
 
     body {
